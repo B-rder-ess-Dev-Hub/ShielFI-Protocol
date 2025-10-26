@@ -1,5 +1,6 @@
 # ShieldFi Protocol: DeFi Insurance Protocol Project
-![download](https://github.com/user-attachments/assets/a523fba4-8f5f-4771-867f-bdbdce5a867f)
+
+![images](https://github.com/user-attachments/assets/0a1232f1-d374-4e2a-a25b-1c09d3603c60)
 
 
 ## Project Overview
