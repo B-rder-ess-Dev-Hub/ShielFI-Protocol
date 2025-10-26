@@ -1,5 +1,3 @@
-# ShieldFi Protocol: DeFi Insurance Protocol Project
-
 ## Project Overview
 
 **ShieldFi** is a comprehensive DeFi insurance protocol that allows users to purchase coverage against smart contract vulnerabilities, stablecoin depegging, and liquidity pool risks. This beginner-friendly project will teach you to build a complete insurance protocol with risk assessment, premium calculations, and claims processing.
