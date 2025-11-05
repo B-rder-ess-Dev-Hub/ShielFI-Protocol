@@ -1,11 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8;
 
-import { Policy } from 
-
-interface IPolicy {
-    function get_policy(uint256 _policyId) external view returns (Policy memory);
-}
+import { Policy, PolicyManager } from "./PolicyManager.sol";
 
 struct Claim {
     uint256 id;
@@ -21,11 +17,11 @@ contract ClaimQueue {
 
     uint256 s_highestPriority;
     uint256 s_nextClaimId = 1;
-    IPolicy policyManager;
+    PolicyManager policyManager;
     Claim[] claims;
 
     constructor (address _policyManagerAddress) {
-        policyManager = IPolicy(_policyManagerAddress);
+        policyManager = PolicyManager(_policyManagerAddress);
     }
 
 
