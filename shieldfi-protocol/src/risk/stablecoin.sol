@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8;
 
-import { Utils } from "./lib/Utils.sol";
+import { Utils } from "./libraries/Utils.sol";
 import {AggregatorV3Interface} from "@chainlink/contracts@1.5.0/src/v0.8/shared/interfaces/AggregatorV3Interface.sol";
 
 contract STABLECOIN {
