@@ -29,8 +29,9 @@ contract ClaimValidator {
     }
 
     
-    function rejectClaim(uint256 policyId) internal {
-        
+    function rejectClaim(Claim memory claim) internal {
+        claim.status = CLAIM_STATUS.APPROVED;
+        claimQueue.setClaim(claim.id, claim);
     }
 
     function acceptClaim(Claim memory claim, Policy memory claim_policy) internal {
@@ -38,7 +39,7 @@ contract ClaimValidator {
             revert UNAUTORIZED_CLAIM(claim.claimant, claim_policy.holder);
         }
 
-        bool successfulPayout = true; // Replace with this.processPayout(claim_policy)
+        bool successfulPayout = processPayout(claim_policy);
 
         if (!successfulPayout) {
             revert("Unable to process Payout");
@@ -76,10 +77,10 @@ contract ClaimValidator {
 
             if (currentPrice <= expectedPriceAfterA20PercentDrop) { // If there's more than a 20% drop in the price of the stable coin
                 // Mark the claim as valid
-                // this.acceptClaim(claim);
+                acceptClaim(claim);
             } else {
                 // reject Claim
-                // this.rejectClaim(claim.id);
+                rejectClaim(claim.id);
             }
         } else if (claim_policy.risk_cat == RiskCategory.SMART_CONTRACT) {
             // To-Do: Ummm, I don't know how to implement this yet
